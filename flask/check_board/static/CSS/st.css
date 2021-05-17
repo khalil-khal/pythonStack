@@ -1,0 +1,20 @@
+**{
+    margin: 0px;    
+    padding: 0px;
+}
+.red{
+    width: 70px;
+    height: 70px;
+    background-color: red;
+    
+}
+.black{
+    width: 70px;
+    height: 70px;
+    background-color: black;
+    
+}
+
+nav{
+    display: flex;
+}
