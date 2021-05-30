@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main>
+        <h1>Welcome {{ request.session.name }}</h1>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        <a href="/logout">Logout</a>
+        <form action="/add_book" method="POST">
+            {% csrf_token %}
+            <h3>Add afavorate book</h3>
+            <input type="text" name="title" placeholder="Title" required>
+            <br><br>
+            <textarea name="description"  cols="30" rows="10" placeholder="description" required></textarea>
+            <br>
+            <input type="submit" name="add" value="add"> 
+        </form>
+    
+        <div class="all_books">
+            <h3>All Books</h3>
+
+            {% for book in all_books %}
+                <a href="/books/{{book.id}}">{{book.title}}</a>
+                <h5>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</h5>
+                <h5></h5>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

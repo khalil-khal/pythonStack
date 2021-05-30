@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{ user.first_name }} {{ user.last_name }}</h1>
+    {% if book.uploaded_by.id == user.id %}
+        <form action="#" method="POST">
+            <input type="text" name="title" placeholder="{{ book.title }}">
+            <h3>added by {{ user.first_name }}</h3>
+            <h3>added on {{ book.created_at }}</h3>
+            <h3>last update {{ book.updated_at }}</h3>
+            <textarea name="description" id="" cols="30" rows="10" placeholder="{{ book.description }}"></textarea>
+            <input type="submit" name="update" value="Update">
+            <input type="submit" name="delete" id="" value="Delete">
+        </form>
+    {% endif %}
+    {% if book.uploaded_by.id != user.id %}
+            <h3> Title {{book.title}}</h3>
+            <h3>added by {{ user.first_name }}</h3>
+            <h3>added on {{ book.created_at }}</h3>
+            <h3>last update {{ book.updated_at }}</h3>
+            <!-- <textarea name="description" id="" cols="30" rows="10" placeholder="{{ book.description }}"></textarea> -->
+            <h3>Description {{ book.description }}</h3>
+        
+    {% endif %}
+</body>
+</html>
