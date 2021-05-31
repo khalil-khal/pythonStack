@@ -6,35 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1>Registration</h1>
+<body style="display: flex; justify-content: space-around">
+    
     <form action="/registration" method="POST">
+        <h1>Registration</h1>
         {% csrf_token %}
-        <label for="first_name">First_name</label>
-        <br>
-        <input type="text" name="fname" id="first_name" required>
-        <br>
-        <label for="">Last_name</label>
-        <br>
-        <input type="text" name="lname" id="last_name" required>
-        <br>
-        <label for="email">email</label>
-        <br>
-        <input type="text" name="email" id="email" required>
-        <br>
-        <label for="password">password</label>
-        <br>
-        <input type="password" name="password" id="password" required > 
-        <br>
-        <label for="confirm">confirmation</label>
-        <br>
-        <input type="password" id="confirm" name="confirm" required>
-        <br>
-        <input type="submit" value="register">
-        <br>
-        <br>
+        <input type="text" name="fname" placeholder="First Name" required>
+        <br><br>
+        <input type="text" name="lname" placeholder="Last Name" required>
+        <br><br>
+        <input type="email" name="email" placeholder="Email" required>
+        <br><br>
+        <input type="password" name="password" placeholder="Password" required > 
+        <br><br>
+        <input type="password" placeholder="Confirm Password" name="confirm" required>
+        <br><br>
+        <input type="submit" value="Register">
+        <br><br>
     </form>
+
     <form action="/login" method="POST">
+        <h1>LogIn</h1>
         {% csrf_token %}
         <input type="hidden" name="pass">
         <label for="email">Email</label>
