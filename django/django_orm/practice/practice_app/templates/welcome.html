@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+</head>
+<body>
+    <h1>you are reched this page</h1>
+    <h3>{{this_book.title}}</h3>
+    <h3>{{this_book.id}}</h3>
+    <h3>{{this_book.desc}}</h3>
+    <h3>Authers</h3>
+    <ul>
+        {% for auther in this_book.authers.all %}
+        <li>{{auther.first_name}}</li>
+        {% endfor %}
+    </ul>
+    <div>
+        <form action="addAutherToBook/{{this_book.id}}" method="POST">
+        <select name="selected_auther">
+            {% for auther in all authers %}
+            <option>"{{auther.id}}">{{auther.first_name}}</option>
+            {% endfor %}
+        </select>
+    </form>
+    </div>
+
+</body>
+</html>
